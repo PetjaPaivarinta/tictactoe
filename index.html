@@ -136,6 +136,10 @@
         if (turn % 2 === 0) {
           player = "Player 1";
           character = "X";
+          if (this.innerHTML !== "") {
+            this.innerHTML = "O";
+            return;
+          }
           player1.push(this.id);
           this.innerHTML = character;
           winner = checkWinner(player1);
@@ -152,6 +156,10 @@
         } else {
           player = "Player 2";
           character = "O";
+          if (this.innerHTML !== "") {
+            this.innerHTML = "X";
+            return;
+          }
           player2.push(this.id);
           this.innerHTML = character;
           winner = checkWinner(player2);
