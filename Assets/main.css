@@ -136,3 +136,19 @@ p {
     margin-top: -40px;
   }
 }
+button {
+  position: absolute;
+  top: 100px;
+  margin-inline: 15px;
+  right: 0;
+  border-radius: 25px;
+  border: 1px solid black;
+  background-color: white;
+  font-size: 30px;
+  padding: 20px;
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  background-color: #eaf1f1;
+}

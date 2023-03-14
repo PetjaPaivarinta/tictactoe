@@ -34,6 +34,7 @@
     <p>X: <span id="player1Score">0</span></p>
     <p>O: <span id="player2Score">0</span></p>
   </div>
+  <button id="reset">Reset</button>
   <body>
     <script>
       let X = "X";
@@ -173,9 +174,16 @@
           boxes[i].addEventListener("click", playGame);
         }
       }
-
+      function fullReset() {
+        player1Score = 0;
+        player2Score = 0;
+        player1ScoreElement.innerHTML = player1Score;
+        player2ScoreElement.innerHTML = player2Score;
+        reset();
+      }
       myForm.addEventListener("click", chooseCharacter);
       addEventListeners();
+      document.getElementById("reset").addEventListener("click", fullReset);
     </script>
   </body>
 </html>
