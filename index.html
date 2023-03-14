@@ -38,7 +38,10 @@
 
   <body>
     <script>
+      let win = new Audio("Assets/win.mp3");
+      win.volume = 0.2;
       let click = new Audio("Assets/click.mp3");
+      click.volume = 0.5;
       let X = "X";
       let O = "O";
       let turn = 0;
@@ -160,7 +163,7 @@
           winner = checkWinner(player1);
           draw = checkDraw();
           if (winner) {
-            alert(player + " won!");
+            win.play();
             player1Score++;
             player1ScoreElement.innerHTML = player1Score;
             reset();
@@ -180,7 +183,7 @@
           winner = checkWinner(player2);
           draw = checkDraw();
           if (winner) {
-            alert(player + " won!");
+            win.play();
             player2Score++;
             player2ScoreElement.innerHTML = player2Score;
             reset();
@@ -211,7 +214,6 @@
       addEventListeners();
       document.getElementById("reset").addEventListener("click", () => {
         fullReset();
-        click.play();
       });
     </script>
   </body>
