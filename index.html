@@ -35,8 +35,10 @@
     <p>O: <span id="player2Score">0</span></p>
   </div>
   <button id="reset">Reset</button>
+
   <body>
     <script>
+      let click = new Audio("Assets/click.mp3");
       let X = "X";
       let O = "O";
       let turn = 0;
@@ -192,7 +194,10 @@
 
       function addEventListeners() {
         for (let i = 0; i < boxes.length; i++) {
-          boxes[i].addEventListener("click", playGame);
+          boxes[i].addEventListener("click", () => {
+            playGame.call(boxes[i]);
+            click.play();
+          });
         }
       }
       function fullReset() {
@@ -204,7 +209,10 @@
       }
       myForm.addEventListener("click", chooseCharacter);
       addEventListeners();
-      document.getElementById("reset").addEventListener("click", fullReset);
+      document.getElementById("reset").addEventListener("click", () => {
+        fullReset();
+        click.play();
+      });
     </script>
   </body>
 </html>
