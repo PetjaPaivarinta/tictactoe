@@ -1,41 +1,77 @@
-html, body {
-    padding: 0;
-    margin: 0;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Comic Sans MS";
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 0;
-    width: 450px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0;
+  width: 450px;
+  margin: 0 auto;
 }
 .box {
+  cursor: pointer;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 150px;
+  height: 150px;
+  font-size: 130px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+h2 {
+  text-align: center;
+  font-size: 50px;
+}
+form > * {
+  font-size: 30px;
+}
+form {
+  text-align: center;
+  margin: -30px 0 25px 0;
+}
+.score {
+  margin: 0 0 0 25px;
+  position: absolute;
+  top: 0;
+}
+@media (max-width: 450px) {
+  h2 {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  form > * {
+    margin-top: 25px;
+    font-size: 10px;
+  }
+  .score {
+    margin: 0 0 0 10px;
+    font-size: 10px;
+  }
+  .box {
     cursor: pointer;
     border-width: 1px;
     border-color: black;
     border-style: solid;
-    width: 150px;
-    height: 150px;
-    font-size: 130px;
+    width: 75px;
+    height: 75px;
+    font-size: 50px;
     align-items: center;
     justify-content: center;
     display: flex;
-}
-h2 {
-    text-align: center;
-    font-size: 50px;
-}
-form > * {
-    font-size: 30px;
-}
-form {
-    text-align: center;
-    margin: -30px 0 25px 0;
-}
-.score {
-    position: absolute;
-    top: 0;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0;
+    width: 225px;
+    margin: 0 auto;
+  }
 }
