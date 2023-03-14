@@ -4,42 +4,97 @@ body {
   margin: 0;
   font-family: "Comic Sans MS";
 }
-
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 0;
-  width: 450px;
+  width: 600px;
   margin: 0 auto;
 }
+
 .box {
   cursor: pointer;
   border-width: 1px;
   border-color: black;
   border-style: solid;
-  width: 150px;
-  height: 150px;
-  font-size: 130px;
+  width: 200px;
+  height: 200px;
+  font-size: 170px;
   align-items: center;
   justify-content: center;
   display: flex;
 }
+
 h2 {
   text-align: center;
   font-size: 50px;
 }
+
 form > * {
   font-size: 30px;
 }
+
 form {
   text-align: center;
   margin: -30px 0 25px 0;
 }
+
 .score {
   margin: 0 0 0 25px;
   position: absolute;
   top: 0;
+}
+p {
+  font-size: 40px;
+  margin-top: -40px;
+}
+@media (max-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0;
+    width: 450px;
+    margin: 0 auto;
+  }
+
+  .box {
+    cursor: pointer;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    width: 150px;
+    height: 150px;
+    font-size: 130px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 50px;
+  }
+
+  form > * {
+    font-size: 30px;
+  }
+
+  form {
+    text-align: center;
+    margin: -30px 0 25px 0;
+  }
+
+  .score {
+    margin: 0 0 0 25px;
+    position: absolute;
+    top: 0;
+  }
+  p {
+    font-size: 30px;
+    margin-top: -40px;
+  }
 }
 @media (max-width: 450px) {
   h2 {
@@ -75,5 +130,9 @@ form {
     grid-gap: 0;
     width: 375px;
     margin: 100px auto 0 auto;
+  }
+  p {
+    font-size: 25px;
+    margin-top: -40px;
   }
 }
