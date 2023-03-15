@@ -14,7 +14,7 @@ body {
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 0;
   width: 600px;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 
 .box {
@@ -133,11 +133,14 @@ p {
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 0;
     width: 375px;
-    margin: 100px auto 0 auto;
+    margin: 150px auto 0 auto;
   }
   p {
     font-size: 25px;
     margin-top: -40px;
+  }
+  button {
+    font-size: 15px;
   }
 }
 button {
