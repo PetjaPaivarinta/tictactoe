@@ -1,221 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="Assets/main.css" />
-    <link rel="icon" href="Assets/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tic Tac Toe game" />
-    <meta name="keywords" content="Tic Tac Toe, game, javascript" />
-    <meta name="author" content="Sapors" />
-    <meta property="og:title" content="Tic Tac Toe" />
-    <meta property="og:description" content="Tic Tac Toe game" />
-    <meta property="og:image" content="Assets/favicon.png" />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8383162901502758"
-      crossorigin="anonymous"
-    ></script>
-    <script src="JS/main.js"></script>
-  </head>
-  <h2>Tic Tac Toe</h2>
-  <div class="container">
-    <div id="firstbox" class="box"></div>
-    <div id="secondbox" class="box"></div>
-    <div id="thirdbox" class="box"></div>
-    <div id="fourthbox" class="box"></div>
-    <div id="fifthbox" class="box"></div>
-    <div id="sixthbox" class="box"></div>
-    <div id="seventhbox" class="box"></div>
-    <div id="eighthbox" class="box"></div>
-    <div id="ninthbox" class="box"></div>
-  </div>
-  <div class="score">
-    <h2>Score</h2>
-    <p>X: <span id="player1Score">0</span></p>
-    <p>O: <span id="player2Score">0</span></p>
-  </div>
-  <button id="reset">Reset</button>
-  <h2 id="currentTurn"></h2>
-  <body>
-    <script>
-      let win = new Audio("Assets/win.mp3");
-      win.volume = 0.2;
-      let click = new Audio("Assets/click.mp3");
-      click.volume = 0.5;
-      let X = "X";
-      let O = "O";
-      let turn = 0;
-      let boxes = document.getElementsByClassName("box");
-      let myForm = document.getElementById("myForm");
-      let xType = document.getElementById("xType");
-      let oType = document.getElementById("oType");
-      let character = "X";
-      let player = "Player 1";
-      let player1 = [];
-      let player2 = [];
-      let winner = false;
-      let draw = false;
-      let player1Score = 0;
-      let player2Score = 0;
-      let player1ScoreElement = document.getElementById("player1Score");
-      let player2ScoreElement = document.getElementById("player2Score");
-      function reset() {
-        for (let i = 0; i < boxes.length; i++) {
-          boxes[i].innerHTML = "";
-        }
-        turn = 0;
-        player1 = [];
-        player2 = [];
-        winner = false;
-        draw = false;
-      }
+    <link rel="stylesheet" href="Assets/main.css">
+    <link rel="icon" href="Assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="Assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+<h1 id="welcome">Tic Tac Toe</h1>
+<div id="selectContainer">
+    <div class="optionChoose" id="singleLocal">Single-player (Local)</div>
+    <div class="optionChoose" id="Multiplayer">Multiplayer</div>
+    <div class="optionChoose" id="playAI">Play Bot</div>
+</div>
+<script>
+    document.getElementById("singleLocal").addEventListener("click", () => {
+        window.location = "singleplayer.html";
+    });
+    // redirect to multiplayer.html when Multiplayer is clicked
+    document.getElementById("Multiplayer").addEventListener("click", () => {
+        window.location = "multiplayer.html";
+    });
+    // redirect to ai.html when playAI is clicked
+    document.getElementById("playAI").addEventListener("click", () => {
+        window.location = "ai.html";
+    });
 
-      function checkWinner(player) {
-        if (
-          player.includes("firstbox") &&
-          player.includes("secondbox") &&
-          player.includes("thirdbox")
-        ) {
-          return true;
-        } else if (
-          player.includes("fourthbox") &&
-          player.includes("fifthbox") &&
-          player.includes("sixthbox")
-        ) {
-          return true;
-        } else if (
-          player.includes("seventhbox") &&
-          player.includes("eighthbox") &&
-          player.includes("ninthbox")
-        ) {
-          return true;
-        } else if (
-          player.includes("firstbox") &&
-          player.includes("fourthbox") &&
-          player.includes("seventhbox")
-        ) {
-          return true;
-        } else if (
-          player.includes("secondbox") &&
-          player.includes("fifthbox") &&
-          player.includes("eighthbox")
-        ) {
-          return true;
-        } else if (
-          player.includes("thirdbox") &&
-          player.includes("sixthbox") &&
-          player.includes("ninthbox")
-        ) {
-          return true;
-        } else if (
-          player.includes("firstbox") &&
-          player.includes("fifthbox") &&
-          player.includes("ninthbox")
-        ) {
-          return true;
-        } else if (
-          player.includes("thirdbox") &&
-          player.includes("fifthbox") &&
-          player.includes("seventhbox")
-        ) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      function checkDraw() {
-        if (
-          boxes[0].innerHTML !== "" &&
-          boxes[1].innerHTML !== "" &&
-          boxes[2].innerHTML !== "" &&
-          boxes[3].innerHTML !== "" &&
-          boxes[4].innerHTML !== "" &&
-          boxes[5].innerHTML !== "" &&
-          boxes[6].innerHTML !== "" &&
-          boxes[7].innerHTML !== "" &&
-          boxes[8].innerHTML !== ""
-        ) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      function playGame() {
-        if (turn % 2 === 0) {
-          player = "Player 1";
-          character = "X";
-          if (this.innerHTML !== "") {
-            this.innerHTML = "O";
-            return;
-          }
-          player1.push(this.id);
-          this.innerHTML = character;
-          winner = checkWinner(player1);
-          draw = checkDraw();
-          if (winner) {
-            win.play();
-            document.getElementById("currentTurn").innerHTML = "X wins!";
-            player1Score++;
-            player1ScoreElement.innerHTML = player1Score;
-            reset();
-          } else if (draw) {
-            alert("It's a draw!");
-            reset();
-          }
-        } else {
-          player = "Player 2";
-          character = "O";
-          if (this.innerHTML !== "") {
-            this.innerHTML = "X";
-            return;
-          }
-          player2.push(this.id);
-          this.innerHTML = character;
-          winner = checkWinner(player2);
-          draw = checkDraw();
-          if (winner) {
-            win.play();
-            document.getElementById("currentTurn").innerHTML = "O wins!";
-            player2Score++;
-            player2ScoreElement.innerHTML = player2Score;
-            reset();
-          } else if (draw) {
-            alert("It's a draw!");
-            reset();
-          }
-        }
-        turn++;
-      }
-      function showTurn () {
-        if (turn % 2 === 0) {
-          document.getElementById("currentTurn").innerHTML = "It's O's turn";
-        } else {
-          document.getElementById("currentTurn").innerHTML = "It's X's turn";
-        }
-      }
-
-      function addEventListeners() {
-        for (let i = 0; i < boxes.length; i++) {
-          boxes[i].addEventListener("click", () => {
-            showTurn();
-            playGame.call(boxes[i]);
-            click.play();
-          });
-        }
-      }
-      function fullReset() {
-        player1Score = 0;
-        player2Score = 0;
-        player1ScoreElement.innerHTML = player1Score;
-        player2ScoreElement.innerHTML = player2Score;
-        reset();
-      }
-      addEventListeners();
-      document.getElementById("reset").addEventListener("click", () => {
-        fullReset();
-      });
-    </script>
-  </body>
+</script>
+</body>
 </html>
