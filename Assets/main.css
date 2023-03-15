@@ -143,16 +143,16 @@ p {
     font-size: 30px;
     margin-top: -40px;
   }
+  button {
+    margin: 0;
+  }
 }
-@media (max-width: 450px) {
-  html, body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+@media (max-width: 500px) {
+  html {
+    font-family: Impact;
   }
   h2 {
     font-size: 35px;
-  }
-  #currentTurn {
-    display: none;
   }
   form > * {
     margin-top: 25px;
@@ -170,9 +170,9 @@ p {
     border-width: 1px;
     border-color: black;
     border-style: solid;
-    width: 125px;
-    height: 125px;
-    font-size: 100px;
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -182,18 +182,32 @@ p {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 0;
-    width: 375px;
+    width: 300px;
     margin: 150px auto 0 auto;
-    margin-inline: 10px;
   }
   p {
     font-size: 25px;
     margin-top: -40px;
   }
   button {
-    font-size: 15px;
+    margin: 0 20px 0 0;
+    font-size: 20px;
     padding: 10px;
-    border-radius: 12px;
+    border-radius: 17px;
+  }
+#welcome {
+    font-size: 50px;
+  }
+
+  .optionChoose {
+    height: 10vh;
+    margin-top: 70px;
+    width: 80vw;
+    padding: 40px 0 0 0;
+    font-size: 30px;
+    align-items: center;
+    border-radius: 15px;
+
   }
 }
 
