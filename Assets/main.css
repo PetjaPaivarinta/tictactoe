@@ -1,10 +1,14 @@
+@font-face {
+    font-family: "myFont";
+    src: url("Fonts/comicNeue-Bold.ttf");
+}
 html,
 body {
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Comic Sans MS", serif;
+    font-family: "myFont", sans-serif;
 }
 .container {
   display: grid;
@@ -13,15 +17,19 @@ body {
   grid-gap: 0;
   width: 600px;
   margin: 25px auto;
+  font-family: "myFont", sans-serif;
 }
 #welcome {
   text-align: center;
   font-size: 70px;
+  font-family: "myFont", sans-serif;
 }
 .box {
+  font-family: "myFont", sans-serif;
   cursor: pointer;
-  border-width: 1px;
+  border-width: 2px;
   border-color: black;
+  outline: none;
   border-style: solid;
   width: 200px;
   height: 200px;
@@ -36,6 +44,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+  font-family: "myFont", sans-serif;
 }
 .optionChoose:hover {
   background-color: #f0f5f5;
@@ -55,7 +64,6 @@ body {
     color: white;
 }
 button {
-  font-family: "Comic Sans MS", serif;
   position: absolute;
   font-weight: bold;
   top: 100px;
@@ -68,6 +76,7 @@ button {
   padding: 20px;
   cursor: pointer;
   outline: none;
+  font-family: "myFont", sans-serif;
 }
 button:hover {
   background-color: #f0f5f5;
@@ -148,9 +157,6 @@ p {
   }
 }
 @media (max-width: 500px) {
-  html {
-    font-family: Impact, serif;
-  }
   h2 {
     font-size: 35px;
   }
