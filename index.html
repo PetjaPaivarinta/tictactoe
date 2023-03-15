@@ -37,6 +37,7 @@
     <p>O: <span id="player2Score">0</span></p>
   </div>
   <button id="reset">Reset</button>
+  <h2 id="currentTurn"></h2>
   <body>
     <script>
       let win = new Audio("Assets/win.mp3");
@@ -141,7 +142,6 @@
           return false;
         }
       }
-
       function playGame() {
         if (turn % 2 === 0) {
           player = "Player 1";
@@ -156,6 +156,7 @@
           draw = checkDraw();
           if (winner) {
             win.play();
+            document.getElementById("currentTurn").innerHTML = "X wins!";
             player1Score++;
             player1ScoreElement.innerHTML = player1Score;
             reset();
@@ -176,6 +177,7 @@
           draw = checkDraw();
           if (winner) {
             win.play();
+            document.getElementById("currentTurn").innerHTML = "O wins!";
             player2Score++;
             player2ScoreElement.innerHTML = player2Score;
             reset();
@@ -186,10 +188,18 @@
         }
         turn++;
       }
+      function showTurn () {
+        if (turn % 2 === 0) {
+          document.getElementById("currentTurn").innerHTML = "It's O's turn";
+        } else {
+          document.getElementById("currentTurn").innerHTML = "It's X's turn";
+        }
+      }
 
       function addEventListeners() {
         for (let i = 0; i < boxes.length; i++) {
           boxes[i].addEventListener("click", () => {
+            showTurn();
             playGame.call(boxes[i]);
             click.play();
           });
