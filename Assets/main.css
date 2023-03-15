@@ -149,7 +149,7 @@ p {
 }
 @media (max-width: 500px) {
   html {
-    font-family: Impact;
+    font-family: Impact, serif;
   }
   h2 {
     font-size: 35px;
@@ -202,7 +202,7 @@ p {
   .optionChoose {
     height: 10vh;
     margin-top: 70px;
-    width: 80vw;
+    width: 80%;
     padding: 40px 0 0 0;
     font-size: 30px;
     align-items: center;
