@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "build": "rollup -c rollup.config.mjs",
+    "start": "rollup -c rollup.config.mjs -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
