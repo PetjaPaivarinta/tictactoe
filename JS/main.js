@@ -9,6 +9,7 @@ const firebaseConfig = {
     appId: "1:271571749323:web:1ac2b0efe058fe5fcbce4e"
 };
 const main = initializeApp(firebaseConfig);
+
 // blev halv färdig vid https://firebase.google.com/docs/web/module-bundling när de står npm run build, fick errorn:
 /*
 E:\tictactoe>npm run build

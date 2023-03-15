@@ -19,13 +19,7 @@
     ></script>
     <script src="JS/main.js"></script>
   </head>
-  <h2>Choose your character</h2>
-  <form id="myForm">
-    <input type="radio" id="xType" name="character" value="X" checked />
-    <label for="xType">X</label>
-    <input type="radio" id="oType" name="character" value="O" />
-    <label for="oType">O</label>
-  </form>
+  <h2>Tic Tac Toe</h2>
   <div class="container">
     <div id="firstbox" class="box"></div>
     <div id="secondbox" class="box"></div>
@@ -66,15 +60,6 @@
       let player2Score = 0;
       let player1ScoreElement = document.getElementById("player1Score");
       let player2ScoreElement = document.getElementById("player2Score");
-
-      function chooseCharacter() {
-        if (xType.checked) {
-          character = "X";
-        } else {
-          character = "O";
-        }
-      }
-
       function reset() {
         for (let i = 0; i < boxes.length; i++) {
           boxes[i].innerHTML = "";
@@ -217,7 +202,6 @@
         player2ScoreElement.innerHTML = player2Score;
         reset();
       }
-      myForm.addEventListener("click", chooseCharacter);
       addEventListeners();
       document.getElementById("reset").addEventListener("click", () => {
         fullReset();
