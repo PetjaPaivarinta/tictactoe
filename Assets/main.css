@@ -29,7 +29,22 @@ body {
   justify-content: center;
   display: flex;
 }
-
+button {
+  position: absolute;
+  top: 100px;
+  margin-inline: 15px;
+  right: 0;
+  border-radius: 25px;
+  border: 1px solid black;
+  background-color: white;
+  font-size: 30px;
+  padding: 20px;
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  background-color: #f0f5f5;
+}
 h2 {
   text-align: center;
   font-size: 50px;
@@ -141,21 +156,8 @@ p {
   }
   button {
     font-size: 15px;
+    padding: 10px;
+    border-radius: 12px;
   }
 }
-button {
-  position: absolute;
-  top: 100px;
-  margin-inline: 15px;
-  right: 0;
-  border-radius: 25px;
-  border: 1px solid black;
-  background-color: white;
-  font-size: 30px;
-  padding: 20px;
-  cursor: pointer;
-  outline: none;
-}
-button:hover {
-  background-color: #f0f5f5;
-}
+
