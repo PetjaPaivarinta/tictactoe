@@ -21,11 +21,9 @@
 </div>
 <script>
     let music = new Audio ("Assets/banger.mp3");
-    window.onload = () => {
-        music.play();
-        music.repeat = true;
-        music.volume = 0.2;
-    }
+    music.play();
+    music.repeat = true;
+    music.volume = 0.2;
     document.getElementById("singleLocal").addEventListener("click", () => {
         window.location = "singleplayer.html";
     });
