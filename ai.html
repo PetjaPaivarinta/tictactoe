@@ -33,6 +33,8 @@
 <h2 id="currentTurn"></h2>
 <body>
 <script>
+  let lossSound = new Audio("Assets/lost.mp3");
+    lossSound.volume = 0.2;
   let singleLocal = document.getElementById("singleLocal");
   let Multiplayer = document.getElementById("Multiplayer");
   let playAI = document.getElementById("playAI");
@@ -180,8 +182,8 @@
       winner = checkWinner(player2);
       draw = checkDraw();
       if (winner) {
-        win.play();
         document.getElementById("currentTurn").innerHTML = "Bot wins!";
+        lossSound.play();
         setTimeout(() => {
           resetText();
         }, 2000);
