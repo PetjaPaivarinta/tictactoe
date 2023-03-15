@@ -135,6 +135,9 @@
       return false;
     }
   }
+  function resetText() {
+    document.getElementById("currentTurn").innerHTML = "";
+  }
   function playGame() {
   //  if (turn % 2 === 0) {
       player = "Player 1";
@@ -150,6 +153,9 @@
       if (winner) {
         win.play();
         document.getElementById("currentTurn").innerHTML = "You win!";
+        setTimeout(() => {
+         resetText();
+        }, 2000);
         player1Score++;
         player1ScoreElement.innerHTML = player1Score;
         reset();
@@ -174,11 +180,17 @@
       if (winner) {
         win.play();
         document.getElementById("currentTurn").innerHTML = "Bot wins!";
+        setTimeout(() => {
+          resetText();
+        }, 2000);
         player2Score++;
         player2ScoreElement.innerHTML = player2Score;
         reset();
       } else if (draw) {
-        alert("It's a draw!");
+        document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+        setTimeout(() => {
+          resetText();
+        }, 2000);
         reset();
       }
    // }
