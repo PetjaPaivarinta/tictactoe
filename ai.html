@@ -143,13 +143,15 @@
       player = "Player 1";
       character = "X";
       if (this.innerHTML !== "") {
-        this.innerHTML = "O";
-        return;
+           return;
       }
       player1.push(this.id);
       this.innerHTML = character;
       winner = checkWinner(player1);
       draw = checkDraw();
+    setTimeout(() => {
+      botTurn();
+    }, 750);
       if (winner) {
         win.play();
         document.getElementById("currentTurn").innerHTML = "You win!";
@@ -161,11 +163,11 @@
         reset();
       } else if (draw) {
         document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+        setTimeout(() => {
+          resetText();
+        }, 2000);
         reset();
         }
-        setTimeout(() => {
-            botTurn();
-        }, 500);
     }
     function botTurn() {
     click.play();
@@ -200,6 +202,7 @@
   function addEventListeners() {
     for (let i = 0; i < boxes.length; i++) {
       boxes[i].addEventListener("click", () => {
+        boxes[i].removeEventListener("click", playGame);
         playGame.call(boxes[i]);
         click.play();
       });
