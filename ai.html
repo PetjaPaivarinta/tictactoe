@@ -13,6 +13,14 @@
   ></script>
 </head>
 <h2>Tic Tac Toe</h2>
+<div class="dropdown">
+  <button class="dropbtn">Change Difficulty</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#" id="easy">Easy</a>
+    <a href="#" id="medium">Medium</a>
+    <a href="#" id="hard">Hard</a>
+  </div>
+</div>
 <div class="container">
   <div id="firstbox" class="box"></div>
   <div id="secondbox" class="box"></div>
@@ -33,6 +41,42 @@
 <h2 id="currentTurn"></h2>
 <body>
 <script>
+  let easy = document.getElementById("easy");
+    let medium = document.getElementById("medium");
+    let hard = document.getElementById("hard");
+    let difficulty = "easy";
+    easy.addEventListener("click", function () {
+      click.play();
+      difficulty = "easy";
+      addEventListenersEz();
+    });
+    medium.addEventListener("click", function () {
+      click.play();
+      difficulty = "medium";
+      addEventListenersMed()
+    });
+    hard.addEventListener("click", function () {
+      click.play()
+      difficulty = "hard";
+        addEventListenersHard()
+    });
+
+  let diffButt = document.getElementsByClassName("dropbtn")[0];
+  diffButt.addEventListener("click", function () {
+    document.getElementById("myDropdown").classList.toggle("show");
+  });
+  window.onclick = function (event) {
+    if (!event.target.matches(".dropbtn")) {
+      let dropdowns = document.getElementsByClassName("dropdown-content");
+      let i;
+      for (i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+          openDropdown.classList.remove("show");
+        }
+      }
+    }
+  };
   let lossSound = new Audio("Assets/lost.mp3");
     lossSound.volume = 0.2;
   let singleLocal = document.getElementById("singleLocal");
@@ -140,7 +184,7 @@
   function resetText() {
     document.getElementById("currentTurn").innerHTML = "";
   }
-  function playGame() {
+  function playEzGame() {
   //  if (turn % 2 === 0) {
       player = "Player 1";
       character = "X";
@@ -152,7 +196,7 @@
       winner = checkWinner(player1);
       draw = checkDraw();
     setTimeout(() => {
-      botTurn();
+      botTurnEz();
     }, 750);
       if (winner) {
         win.play();
@@ -171,7 +215,69 @@
         reset();
         }
     }
-    function botTurn() {
+  function playMedGame() {
+    //  if (turn % 2 === 0) {
+    player = "Player 1";
+    character = "X";
+    if (this.innerHTML !== "") {
+      return;
+    }
+    player1.push(this.id);
+    this.innerHTML = character;
+    winner = checkWinner(player1);
+    draw = checkDraw();
+    setTimeout(() => {
+      botTurnMed();
+    }, 750);
+    if (winner) {
+      win.play();
+      document.getElementById("currentTurn").innerHTML = "You win!";
+      setTimeout(() => {
+        resetText();
+      }, 2000);
+      player1Score++;
+      player1ScoreElement.innerHTML = player1Score;
+      reset();
+    } else if (draw) {
+      document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+      setTimeout(() => {
+        resetText();
+      }, 2000);
+      reset();
+    }
+  }
+    function playHardGame() {
+        //  if (turn % 2 === 0) {
+        player = "Player 1";
+        character = "X";
+        if (this.innerHTML !== "") {
+            return;
+        }
+        player1.push(this.id);
+        this.innerHTML = character;
+        winner = checkWinner(player1);
+        draw = checkDraw();
+        setTimeout(() => {
+            botTurnHard();
+        }, 750);
+        if (winner) {
+            win.play();
+            document.getElementById("currentTurn").innerHTML = "You win!";
+            setTimeout(() => {
+            resetText();
+            }, 2000);
+            player1Score++;
+            player1ScoreElement.innerHTML = player1Score;
+            reset();
+        } else if (draw) {
+            document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+            setTimeout(() => {
+            resetText();
+            }, 2000);
+            reset();
+        }
+    }
+    function botTurnEz() {
     click.play();
       let random = Math.floor(Math.random() * 9);
       while (boxes[random].innerHTML !== "") {
@@ -200,16 +306,91 @@
    // }
     turn++;
   }
+  function botTurnMed() {
+    click.play();
+    let random = Math.floor(Math.random() * 9);
+    while (boxes[random].innerHTML !== "") {
+      random = Math.floor(Math.random() * 9);
+    }
+    boxes[random].innerHTML = "O";
+    player2.push(boxes[random].id);
+    winner = checkWinner(player2);
+    draw = checkDraw();
+    if (winner) {
+      document.getElementById("currentTurn").innerHTML = "Bot wins!";
+      lossSound.play();
+      setTimeout(() => {
+        resetText();
+      }, 2000);
+      player2Score++;
+      player2ScoreElement.innerHTML = player2Score;
+      reset();
+    } else if (draw) {
+      document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+      setTimeout(() => {
+        resetText();
+      }, 2000);
+      reset();
+    }
+    turn++;
+  }
+    function botTurnHard() {
+        click.play();
+        let random = Math.floor(Math.random() * 9);
+        while (boxes[random].innerHTML !== "") {
+        random = Math.floor(Math.random() * 9);
+        }
+        boxes[random].innerHTML = "O";
+        player2.push(boxes[random].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+        document.getElementById("currentTurn").innerHTML = "Bot wins!";
+        lossSound.play();
+        setTimeout(() => {
+            resetText();
+        }, 2000);
+        player2Score++;
+        player2ScoreElement.innerHTML = player2Score;
+        reset();
+        } else if (draw) {
+        document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+        setTimeout(() => {
+            resetText();
+        }, 2000);
+        reset();
+        }
+        turn++;
+    }
 
-  function addEventListeners() {
+  function addEventListenersEz() {
     for (let i = 0; i < boxes.length; i++) {
       boxes[i].addEventListener("click", () => {
-        boxes[i].removeEventListener("click", playGame);
-        playGame.call(boxes[i]);
+        boxes[i].removeEventListener("click", playEzGame);
+        playEzGame.call(boxes[i]);
         click.play();
       });
     }
   }
+
+    function addEventListenersMed() {
+      for (let i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener("click", () => {
+          boxes[i].removeEventListener("click", playMedGame);
+          playMedGame().call(boxes[i]);
+          click.play();
+        });
+      }
+    }
+    function addEventListenersHard() {
+      for (let i = 0; i < boxes.length; i++) {
+        boxes[i].addEventListener("click", () => {
+          boxes[i].removeEventListener("click", playHardGame);
+          playHardGame().call(boxes[i]);
+          click.play();
+        });
+      }
+    }
   function fullReset() {
     player1Score = 0;
     player2Score = 0;
@@ -217,7 +398,7 @@
     player2ScoreElement.innerHTML = player2Score;
     reset();
   }
-  addEventListeners();
+  addEventListenersEz();
   document.getElementById("reset").addEventListener("click", () => {
     fullReset();
   });
