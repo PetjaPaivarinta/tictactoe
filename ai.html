@@ -46,6 +46,7 @@
     let hard = document.getElementById("hard");
     let difficulty = "easy";
     easy.addEventListener("click", function () {
+      reset()
       click.play();
       difficulty = "easy";
       document.getElementsByClassName("dropbtn")[0].innerHTML = "Easy";
@@ -54,6 +55,7 @@
       addEventListenersEz();
     });
     medium.addEventListener("click", function () {
+      reset()
       click.play();
       difficulty = "medium";
         document.getElementsByClassName("dropbtn")[0].innerHTML = "Medium";
@@ -62,6 +64,7 @@
       addEventListenersMed()
     });
     hard.addEventListener("click", function () {
+      reset()
       click.play()
       difficulty = "hard";
         document.getElementsByClassName("dropbtn")[0].innerHTML = "Hard";
@@ -233,7 +236,7 @@
     winner = checkWinner(player1);
     draw = checkDraw();
     setTimeout(() => {
-      botTurnMed();
+      botTurnEz();
     }, 750);
     if (winner) {
       win.play();
