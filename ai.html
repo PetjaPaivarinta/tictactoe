@@ -48,16 +48,25 @@
     easy.addEventListener("click", function () {
       click.play();
       difficulty = "easy";
+      document.getElementsByClassName("dropbtn")[0].innerHTML = "Easy";
+      document.getElementsByClassName("dropbtn")[0].classList.toggle("green");
+      document.getElementById('currentTurn').innerHTML = "Easy";
       addEventListenersEz();
     });
     medium.addEventListener("click", function () {
       click.play();
       difficulty = "medium";
+        document.getElementsByClassName("dropbtn")[0].innerHTML = "Medium";
+      document.getElementsByClassName("dropbtn")[0].classList.toggle("orange");
+        document.getElementById('currentTurn').innerHTML = "Medium";
       addEventListenersMed()
     });
     hard.addEventListener("click", function () {
       click.play()
       difficulty = "hard";
+        document.getElementsByClassName("dropbtn")[0].innerHTML = "Hard";
+        document.getElementsByClassName("dropbtn")[0].classList.toggle("red");
+        document.getElementById('currentTurn').innerHTML = "Hard";
         addEventListenersHard()
     });
 
@@ -79,9 +88,6 @@
   };
   let lossSound = new Audio("Assets/lost.mp3");
     lossSound.volume = 0.2;
-  let singleLocal = document.getElementById("singleLocal");
-  let Multiplayer = document.getElementById("Multiplayer");
-  let playAI = document.getElementById("playAI");
   let win = new Audio("Assets/win.mp3");
   win.volume = 0.2;
   let click = new Audio("Assets/click.mp3");
@@ -335,33 +341,3230 @@
     turn++;
   }
     function botTurnHard() {
+      // if first and second box are x and third is empty then put o in third box
+      if (boxes[0].innerHTML === "X" && boxes[1].innerHTML === "X" && boxes[2].innerHTML === "") {
+        boxes[2].innerHTML = "O";
+        player2.push(boxes[2].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[0].innerHTML === "X" && boxes[1].innerHTML === "" && boxes[2].innerHTML === "X") {
+        boxes[1].innerHTML = "O";
+        player2.push(boxes[1].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[0].innerHTML === "" && boxes[1].innerHTML === "X" && boxes[2].innerHTML === "X") {
+        boxes[0].innerHTML = "O";
+        player2.push(boxes[0].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[3].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[5].innerHTML === "") {
+        boxes[5].innerHTML = "O";
+        player2.push(boxes[5].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[3].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[5].innerHTML === "X") {
+        boxes[4].innerHTML = "O";
+        player2.push(boxes[4].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[3].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[5].innerHTML === "X") {
+        boxes[3].innerHTML = "O";
+        player2.push(boxes[3].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[6].innerHTML === "X" && boxes[7].innerHTML === "X" && boxes[8].innerHTML === "") {
+        boxes[8].innerHTML = "O";
+        player2.push(boxes[8].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+        }
         click.play();
         let random = Math.floor(Math.random() * 9);
         while (boxes[random].innerHTML !== "") {
-        random = Math.floor(Math.random() * 9);
+          random = Math.floor(Math.random() * 9);
         }
         boxes[random].innerHTML = "O";
         player2.push(boxes[random].id);
         winner = checkWinner(player2);
         draw = checkDraw();
         if (winner) {
-        document.getElementById("currentTurn").innerHTML = "Bot wins!";
-        lossSound.play();
-        setTimeout(() => {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
             resetText();
-        }, 2000);
-        player2Score++;
-        player2ScoreElement.innerHTML = player2Score;
-        reset();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
         } else if (draw) {
-        document.getElementById("currentTurn").innerHTML = "It's a draw :/";
-        setTimeout(() => {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
             resetText();
-        }, 2000);
-        reset();
+          }, 2000);
+          reset();
         }
         turn++;
-    }
+      } else if (boxes[6].innerHTML === "X" && boxes[7].innerHTML === "" && boxes[8].innerHTML === "X") {
+        boxes[7].innerHTML = "O";
+        player2.push(boxes[7].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[6].innerHTML === "" && boxes[7].innerHTML === "X" && boxes[8].innerHTML === "X") {
+        boxes[6].innerHTML = "O";
+        player2.push(boxes[6].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+      } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "") {
+        boxes[6].innerHTML = "O";
+        player2.push(boxes[6].id);
+        winner = checkWinner(player2);
+        draw = checkDraw();
+        if (winner) {
+          document.getElementById("currentTurn").innerHTML = "Bot wins!";
+          lossSound.play();
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          player2Score++;
+          player2ScoreElement.innerHTML = player2Score;
+          reset();
+        } else if (draw) {
+          document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+          setTimeout(() => {
+            resetText();
+          }, 2000);
+          reset();
+        }
+        turn++;
+        return;
+        } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "X") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "X") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "X") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "X") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "X") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "X") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[7].innerHTML === "X") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[8].innerHTML === "X") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "X" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "X") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "X" && boxes[6].innerHTML === "X") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "O" && boxes[1].innerHTML === "O" && boxes[2].innerHTML === "") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "O" && boxes[1].innerHTML === "" && boxes[2].innerHTML === "O") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[1].innerHTML === "O" && boxes[2].innerHTML === "O") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[3].innerHTML === "O" && boxes[4].innerHTML === "O" && boxes[5].innerHTML === "") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[3].innerHTML === "O" && boxes[4].innerHTML === "" && boxes[5].innerHTML === "O") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[3].innerHTML === "" && boxes[4].innerHTML === "O" && boxes[5].innerHTML === "O") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[6].innerHTML === "O" && boxes[7].innerHTML === "O" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[6].innerHTML === "O" && boxes[7].innerHTML === "" && boxes[8].innerHTML === "O") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+                }
+                turn++;
+                return;
+            } else if (boxes[6].innerHTML === "" && boxes[7].innerHTML === "O" && boxes[8].innerHTML === "O") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "O" && boxes[3].innerHTML === "O" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "O" && boxes[3].innerHTML === "" && boxes[6].innerHTML === "O") {
+            boxes[3].innerHTML = "O";
+            player2.push(boxes[3].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[3].innerHTML === "O" && boxes[6].innerHTML === "O") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "O" && boxes[4].innerHTML === "O" && boxes[7].innerHTML === "") {
+            boxes[7].innerHTML = "O";
+            player2.push(boxes[7].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "O" && boxes[4].innerHTML === "" && boxes[7].innerHTML === "O") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[1].innerHTML === "" && boxes[4].innerHTML === "O" && boxes[7].innerHTML === "O") {
+            boxes[1].innerHTML = "O";
+            player2.push(boxes[1].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "O" && boxes[5].innerHTML === "O" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "O" && boxes[5].innerHTML === "" && boxes[8].innerHTML === "O") {
+            boxes[5].innerHTML = "O";
+            player2.push(boxes[5].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[5].innerHTML === "O" && boxes[8].innerHTML === "O") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "O" && boxes[4].innerHTML === "O" && boxes[8].innerHTML === "") {
+            boxes[8].innerHTML = "O";
+            player2.push(boxes[8].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "O" && boxes[4].innerHTML === "" && boxes[8].innerHTML === "O") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[0].innerHTML === "" && boxes[4].innerHTML === "O" && boxes[8].innerHTML === "O") {
+            boxes[0].innerHTML = "O";
+            player2.push(boxes[0].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "O" && boxes[4].innerHTML === "O" && boxes[6].innerHTML === "") {
+            boxes[6].innerHTML = "O";
+            player2.push(boxes[6].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "O" && boxes[4].innerHTML === "" && boxes[6].innerHTML === "O") {
+            boxes[4].innerHTML = "O";
+            player2.push(boxes[4].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            } else if (boxes[2].innerHTML === "" && boxes[4].innerHTML === "O" && boxes[6].innerHTML === "O") {
+            boxes[2].innerHTML = "O";
+            player2.push(boxes[2].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+            return;
+            }
+            else {
+            let random = Math.floor(Math.random() * 9);
+            while (boxes[random].innerHTML === "X" || boxes[random].innerHTML === "O") {
+                random = Math.floor(Math.random() * 9);
+            }
+            boxes[random].innerHTML = "O";
+            player2.push(boxes[random].id);
+            winner = checkWinner(player2);
+            draw = checkDraw();
+            if (winner) {
+                document.getElementById("currentTurn").innerHTML = "Bot wins!";
+                lossSound.play();
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                player2Score++;
+                player2ScoreElement.innerHTML = player2Score;
+                reset();
+            } else if (draw) {
+                document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+                setTimeout(() => {
+                resetText();
+                }, 2000);
+                reset();
+            }
+            turn++;
+      }
+      }
 
   function addEventListenersEz() {
     for (let i = 0; i < boxes.length; i++) {

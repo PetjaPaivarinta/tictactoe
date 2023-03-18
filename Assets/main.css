@@ -24,17 +24,18 @@ a {
     color: black;
 }
 #easy {
-  border-bottom: 1px solid green;
+  border-bottom: 2px solid green;
 }
 #medium {
-  border-bottom: 1px solid orange;
+  border-bottom: 2px solid orange;
 }
 #hard {
-  border-bottom: 1px solid red;
+  border-bottom: 2px solid red;
 }
 .dropdown-content {
   display: none;
-  font-size: 13px;
+  font-size: 15px;
+  transition: 0.3s;
   color: black;
   font-weight: bold;
   max-height: 20px;
@@ -49,7 +50,7 @@ a {
   font-weight: bold;
   border-radius: 15px;
   padding: 16px;
-  font-size: 16px;
+  font-size: 19px;
   transition: 0.3s;
   border: none;
   cursor: pointer;
@@ -57,6 +58,31 @@ a {
 .show {
   display: flex;
     flex-direction: column;
+  transition: 0.3s;
+}
+.green {
+  background-color: green;
+  transition: 0.3s;
+}
+.green:hover {
+  background-color: #008000;
+  transition: 0.3s;
+}
+.orange {
+  background-color: orange;
+  transition: 0.3s;
+}
+.orange:hover {
+  background-color: #e68a00;
+  transition: 0.3s;
+}
+.red {
+  background-color: red;
+  transition: 0.3s;
+}
+.red:hover {
+  background-color: #e00404;
+  transition: 0.3s;
 }
 .container {
   display: grid;
