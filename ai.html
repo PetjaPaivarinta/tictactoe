@@ -352,7 +352,11 @@
   function botTurnHard() {
     click.play();
     console.log("turn " + turn);
-    if (turn === 0 && boxes[4].innerHTML === "") {
+    if (turn === 0 && boxes[4].innerHTML === "" ||
+            turn === 1 && boxes[4].innerHTML === "" ||
+            turn === 2 && boxes[4].innerHTML === "" ||
+            turn === 3 && boxes[4].innerHTML === "" ||
+            turn === 4 && boxes[4].innerHTML === "") {
       console.log("turn 2");
       boxes[4].innerHTML = "O";
       player2.push(boxes[4].id);
