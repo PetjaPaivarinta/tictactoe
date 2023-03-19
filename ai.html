@@ -14,7 +14,7 @@
 </head>
 <h2>Tic Tac Toe</h2>
 <div class="dropdown">
-  <button class="dropbtn">Change Difficulty</button>
+  <button class="dropbtn">Choose Difficulty</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="#" id="easy">Easy</a>
     <a href="#" id="medium">Medium</a>
@@ -44,7 +44,7 @@
   let easy = document.getElementById("easy");
     let medium = document.getElementById("medium");
     let hard = document.getElementById("hard");
-    let difficulty = "easy";
+    let difficulty = "1";
     easy.addEventListener("click", function () {
       reset()
       click.play();
@@ -52,6 +52,7 @@
       document.getElementsByClassName("dropbtn")[0].innerHTML = "Easy";
       document.getElementsByClassName("dropbtn")[0].classList.toggle("green");
       document.getElementById('currentTurn').innerHTML = "Easy";
+      console.log(difficulty);
       addEventListenersEz();
     });
     medium.addEventListener("click", function () {
@@ -61,6 +62,7 @@
         document.getElementsByClassName("dropbtn")[0].innerHTML = "Medium";
       document.getElementsByClassName("dropbtn")[0].classList.toggle("orange");
         document.getElementById('currentTurn').innerHTML = "Medium";
+      console.log(difficulty);
       addEventListenersMed()
     });
     hard.addEventListener("click", function () {
@@ -70,6 +72,7 @@
         document.getElementsByClassName("dropbtn")[0].innerHTML = "Hard";
         document.getElementsByClassName("dropbtn")[0].classList.toggle("red");
         document.getElementById('currentTurn').innerHTML = "Hard";
+      console.log(difficulty);
         addEventListenersHard()
     });
 
@@ -236,7 +239,7 @@
     winner = checkWinner(player1);
     draw = checkDraw();
     setTimeout(() => {
-      botTurnEz();
+      botTurnMed();
     }, 750);
     if (winner) {
       win.play();
@@ -344,6 +347,7 @@
     turn++;
   }
     function botTurnHard() {
+    click.play()
       // if first and second box are x and third is empty then put o in third box
       if (boxes[0].innerHTML === "X" && boxes[1].innerHTML === "X" && boxes[2].innerHTML === "") {
         boxes[2].innerHTML = "O";
@@ -3597,6 +3601,23 @@
         });
       }
     }
+    /*
+    console.log(difficulty);
+    if (difficulty === "1") {
+        notSelected();
+    }
+    function notSelected() {
+        for (let i = 0; i < boxes.length; i++) {
+            boxes[i].addEventListener("click", () => {
+              click.play();
+              document.getElementById("currentTurn").innerHTML = "Please select a difficulty!";
+              setTimeout(() => {
+                resetText();
+              }, 10000);
+            });
+        }
+    }
+    */
   function fullReset() {
     player1Score = 0;
     player2Score = 0;
@@ -3604,7 +3625,6 @@
     player2ScoreElement.innerHTML = player2Score;
     reset();
   }
-  addEventListenersEz();
   document.getElementById("reset").addEventListener("click", () => {
     fullReset();
   });
