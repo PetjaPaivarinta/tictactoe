@@ -75,7 +75,7 @@
         document.getElementsByClassName("dropbtn")[0].classList.toggle("red");
         document.getElementById("currentTurn").innerHTML = "Hard";
         console.log(difficulty);
-        addEventListenersHard();
+            addEventListenersHard();
       });
 
       let diffButt = document.getElementsByClassName("dropbtn")[0];
@@ -273,7 +273,7 @@
         draw = checkDraw();
         setTimeout(() => {
           botTurnHard();
-        }, 750);
+        }, 5);
         if (winner) {
           turn = 0;
           win.play();
@@ -4414,7 +4414,7 @@
         for (let i = 0; i < boxes.length; i++) {
           boxes[i].addEventListener("click", () => {
             boxes[i].removeEventListener("click", playHardGame);
-            playHardGame.call(boxes[i]);
+              playHardGame.call(boxes[i]);
             click.play();
           });
         }
