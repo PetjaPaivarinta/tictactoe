@@ -168,19 +168,12 @@
             player.includes("ninthbox")
     ) {
       return true;
-    } else if (
-            player.includes("thirdbox") &&
-            player.includes("fifthbox") &&
-            player.includes("seventhbox")
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    } else return !!(player.includes("thirdbox") &&
+              player.includes("fifthbox") &&
+              player.includes("seventhbox"));
   }
   function checkDraw() {
-    if (
-            boxes[0].innerHTML !== "" &&
+    return boxes[0].innerHTML !== "" &&
             boxes[1].innerHTML !== "" &&
             boxes[2].innerHTML !== "" &&
             boxes[3].innerHTML !== "" &&
@@ -188,12 +181,7 @@
             boxes[5].innerHTML !== "" &&
             boxes[6].innerHTML !== "" &&
             boxes[7].innerHTML !== "" &&
-            boxes[8].innerHTML !== ""
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+            boxes[8].innerHTML !== "";
   }
   function resetText() {
     document.getElementById("currentTurn").innerHTML = "";
