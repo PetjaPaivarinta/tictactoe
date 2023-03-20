@@ -284,9 +284,6 @@
       player1Score++;
       player1ScoreElement.innerHTML = player1Score;
       reset();
-      setTimeout(() => {
-        reset();
-      }, 50);
     } else if (draw) {
       document.getElementById("currentTurn").innerHTML = "It's a draw :/";
       setTimeout(() => {
@@ -369,9 +366,6 @@
         player2Score++;
         player2ScoreElement.innerHTML = player2Score;
         reset();
-        setTimeout(() => {
-          reset();
-        }, 50);
       } else if (draw) {
         document.getElementById("currentTurn").innerHTML = "It's a draw :/";
         setTimeout(() => {
@@ -398,9 +392,7 @@
         setTimeout(() => {
           resetText();
         }, 2000);
-        setTimeout(() => {
-          reset();
-        }, 50);
+        reset()
         player2Score++;
         player2ScoreElement.innerHTML = player2Score;
         reset();
@@ -429,9 +421,7 @@
         setTimeout(() => {
           resetText();
         }, 2000);
-        setTimeout(() => {
-          reset();
-        }, 50);
+        reset()
         player2Score++;
         player2ScoreElement.innerHTML = player2Score;
         reset();
