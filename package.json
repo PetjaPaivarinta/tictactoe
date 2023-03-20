@@ -1,20 +1,27 @@
 {
-  "name": "your-package-name",
+  "name": "tictactoe",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "build": "rollup -c rollup.config.mjs",
-    "start": "rollup -c rollup.config.mjs -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PetjaPaivarinta/tictactoe.git"
+  },
   "keywords": [],
-  "type": "module",
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PetjaPaivarinta/tictactoe/issues"
+  },
+  "homepage": "https://github.com/PetjaPaivarinta/tictactoe#readme",
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "firebase": "^9.17.2"
+    "firebase": "^9.18.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
   }
-
 }
