@@ -10,6 +10,23 @@ body {
   margin: 0;
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
+.drawGame {
+  margin-left: 25px;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  padding: 16px;
+  font-size: 19px;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+.drawGame:hover {
+  background-color: #3e8e41;
+  transition: 0.3s;
+}
 .dropdown {
     display: flex;
     justify-content: center;

@@ -20,6 +20,7 @@
     <a href="#" id="medium">Medium</a>
     <a href="#" id="hard">Hard</a>
   </div>
+  <button class="drawGame">Force Draw</button>
 </div>
 <div class="container">
   <div id="firstbox" class="box"></div>
@@ -41,6 +42,7 @@
 <h2 id="currentTurn"></h2>
 <body>
 <script>
+  let forceDraw = document.getElementsByClassName("drawGame")[0];
   let easy = document.getElementById("easy");
   let medium = document.getElementById("medium");
   let hard = document.getElementById("hard");
@@ -3029,6 +3031,13 @@
   }
   document.getElementById("reset").addEventListener("click", () => {
     fullReset();
+  });
+  forceDraw.addEventListener('click', () => {
+    document.getElementById("currentTurn").innerHTML = "It's a draw :/";
+    setTimeout(() => {
+      resetText();
+    }, 2000);
+    reset();
   });
 </script>
 </body>
