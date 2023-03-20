@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from 'firebase/database';
 import { getAuth, signInAnonymously } from 'firebase/auth';
+import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
 import firebase from "firebase/compat";
 
 const firebaseApp = initializeApp({
@@ -36,8 +37,9 @@ const firebaseApp = initializeApp({
             console.log(errorCode, errorMessage);
             // ...
         });
-
-    // generate a random string for invite code
     function generateInviteCode() {
         return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     }
+
+    // make a chat room
+
